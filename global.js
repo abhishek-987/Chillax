@@ -1,0 +1,1 @@
+global.apiHost = 'https://eb88-2405-201-5c06-7e04-104b-664f-7c02-6e62.ngrok-free.app'
