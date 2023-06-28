@@ -4,6 +4,7 @@ import '../global'
 const callSignUpApi = async (username, password) => {
     try {
         console.log("Loading signup")
+        const hashedPassword = bcrypt.hashSync(password, '$2a$10$CwTycUXWue0Thq9StjUM0u')
         const response = await fetch(apiHost+'/insertUser',
             {
                 method: 'POST',
@@ -13,7 +14,7 @@ const callSignUpApi = async (username, password) => {
                 },
                 body: JSON.stringify({
                     username: username,
-                    password: password,
+                    password: hashedPassword,
                 }),
             },
 
