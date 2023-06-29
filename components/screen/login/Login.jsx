@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { Alert, Button, TextInput, SafeAreaView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React from 'react';
-import callLoginApi from '../../web/LoginWeb';
-import callSignUpApi from '../../web/SignupWeb';
+import callLoginApi from '../../../web/LoginWeb';
+import callSignUpApi from '../../../web/SignupWeb';
 import styles from './LoginStyles.js';
 
 
@@ -10,7 +10,7 @@ import styles from './LoginStyles.js';
 //   ? manifest.debuggerHost.split(`:`).shift().concat(`:3000`)
 //   : `api.example.com`;
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [username, setUsername] = React.useState('Type Any Username');
   const [password, setPassword] = React.useState('Type Any Password');
   const [result, setResult] = React.useState('No Data');
@@ -50,7 +50,8 @@ const Login = () => {
           <View style={styles.createAccountView}>
             <TouchableOpacity
               onPress={() => {
-                callSignUpApi(username, password)
+                // callSignUpApi(username, password)
+                navigation.navigate('Signup')
               }}
               style = {styles.createAccountButton}
             >
